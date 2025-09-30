@@ -661,9 +661,9 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: 'product',
+        path: 'project',
         lazy: async () => {
-          const { default: Component } = await import('./pages/product')
+          const { default: Component } = await import('./pages/project')
           return {
             Component: () => (
               <ProtectedRoute>
@@ -672,24 +672,6 @@ const router = createBrowserRouter([
             ),
           }
         },
-        children: [
-          {
-            index: true,
-            lazy: async () => {
-              const { default: Component } = await import(
-                './pages/product/list'
-              )
-              return { Component }
-            },
-          },
-          {
-            path: 'add-product',
-            lazy: async () => {
-              const { default: Component } = await import('./pages/product/add')
-              return { Component }
-            },
-          },
-        ],
       },
       {
         path: 'dashboard',

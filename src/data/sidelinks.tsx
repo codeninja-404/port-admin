@@ -49,21 +49,21 @@ export const sidelinks: SideLink[] = [
     icon: <IconLayoutKanban size={18} />,
   },
   {
-    title: 'Products',
+    title: 'Projects',
     label: '',
     href: '',
     icon: <IconChecklist size={18} />,
     sub: [
       {
-        title: 'Product',
+        title: 'Project',
         label: '',
-        href: '/product',
+        href: '/project',
         icon: <IconBrandProducthunt size={18} />,
       },
       {
-        title: 'Add Product',
+        title: 'Add Project',
         label: '',
-        href: '/product/add-product',
+        href: '/project/add-project',
         icon: <IconHexagonNumber1 size={18} />,
       },
     ],
