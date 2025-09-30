@@ -3,6 +3,7 @@ import type {
   LoginRequest,
   RegisterRequest,
   AuthResponse,
+  RegisterResponse,
   About,
   UpdateAboutRequest,
   SkillCategory,
@@ -11,16 +12,9 @@ import type {
   ContactMessage,
   SendMessageRequest,
   HealthStatus,
-  ApiResponse,
 } from '@/types/api'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
-
-// Helper to extract data from our API response format
-const transformResponse = <T>(response: ApiResponse<T>): T => {
-  console.log(response)
-  return response
-}
 
 export const api = createApi({
   reducerPath: 'api',
@@ -37,31 +31,31 @@ export const api = createApi({
   }),
   tagTypes: ['About', 'Skills', 'Contact', 'Auth', 'Messages'],
   endpoints: (builder) => ({
-    // Auth endpoints
+    // Auth endpoints - NO transformResponse since backend returns data directly
     login: builder.mutation<AuthResponse, LoginRequest>({
       query: (credentials) => ({
         url: '/api/auth/login',
         method: 'POST',
         body: credentials,
       }),
-      transformResponse,
+      // Remove transformResponse - backend returns { token, user } directly
       invalidatesTags: ['Auth'],
     }),
 
-    register: builder.mutation<AuthResponse, RegisterRequest>({
+    register: builder.mutation<RegisterResponse, RegisterRequest>({
       query: (userData) => ({
         url: '/api/auth/register',
         method: 'POST',
         body: userData,
       }),
-      transformResponse,
+      // Remove transformResponse - backend returns { message } directly
       invalidatesTags: ['Auth'],
     }),
 
-    // About endpoints
+    // About endpoints - check if these also return data directly
     getAbout: builder.query<About, void>({
       query: () => '/api/about',
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
       providesTags: ['About'],
     }),
 
@@ -71,14 +65,14 @@ export const api = createApi({
         method: 'PUT',
         body: data,
       }),
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
       invalidatesTags: ['About'],
     }),
 
     // Skills endpoints
     getSkills: builder.query<SkillCategory[], void>({
       query: () => '/api/skills',
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
       providesTags: ['Skills'],
     }),
 
@@ -91,14 +85,14 @@ export const api = createApi({
         method: 'POST',
         body: data,
       }),
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
       invalidatesTags: ['Skills'],
     }),
 
     // Contact endpoints
     getContactInfo: builder.query<ContactInfo, void>({
       query: () => '/api/contact/info',
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
       providesTags: ['Contact'],
     }),
 
@@ -113,14 +107,14 @@ export const api = createApi({
 
     getMessages: builder.query<ContactMessage[], void>({
       query: () => '/api/contact/messages',
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
       providesTags: ['Messages'],
     }),
 
     // System endpoints
     healthCheck: builder.query<HealthStatus, void>({
       query: () => '/api/health',
-      transformResponse,
+      // Remove transformResponse initially, add back if needed
     }),
   }),
 })

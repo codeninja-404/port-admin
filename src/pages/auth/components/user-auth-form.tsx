@@ -188,7 +188,7 @@ import { useLoginMutation } from '@/services/api'
 import { useAppDispatch } from '@/hooks/redux'
 import { setCredentials } from '@/store/slices/authSlice'
 
-interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> { }
+interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {}
 
 const formSchema = z.object({
   email: z
@@ -209,10 +209,10 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  
+
   // RTK Query mutation
   const [login] = useLoginMutation()
-  
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -223,7 +223,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    
+
     try {
       // Use RTK Query mutation instead of manual fetch
       const result = await login({
@@ -240,14 +240,13 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       })
 
       // Navigate to admin dashboard
-      setTimeout(() => navigate('/admin'), 1000)
-      
+      setTimeout(() => navigate('/'), 1000)
     } catch (error: any) {
       console.error('Login failed:', error)
-      
+
       // Handle different error formats from RTK Query
       let errorMessage = 'Login failed. Please try again.'
-      
+
       if (error.data) {
         errorMessage = error.data.message || errorMessage
       } else if (error.error) {
@@ -278,9 +277,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                 <FormItem className='space-y-1'>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input 
-                      placeholder='name@example.com' 
-                      {...field} 
+                    <Input
+                      placeholder='name@example.com'
+                      {...field}
                       disabled={isLoading}
                     />
                   </FormControl>
@@ -303,9 +302,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                     </Link>
                   </div>
                   <FormControl>
-                    <PasswordInput 
-                      placeholder='********' 
-                      {...field} 
+                    <PasswordInput
+                      placeholder='********'
+                      {...field}
                       disabled={isLoading}
                     />
                   </FormControl>
@@ -313,41 +312,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                 </FormItem>
               )}
             />
-            <Button className='mt-2' loading={isLoading} type="submit">
+            <Button className='mt-2' loading={isLoading} type='submit'>
               Login
             </Button>
-
-            <div className='relative my-2'>
-              <div className='absolute inset-0 flex items-center'>
-                <span className='w-full border-t' />
-              </div>
-              <div className='relative flex justify-center text-xs uppercase'>
-                <span className='bg-background px-2 text-muted-foreground'>
-                  Or continue with
-                </span>
-              </div>
-            </div>
-
-            <div className='flex items-center gap-2'>
-              <Button
-                variant='outline'
-                className='w-full'
-                type='button'
-                loading={isLoading}
-                leftSection={<IconBrandGithub className='h-4 w-4' />}
-              >
-                GitHub
-              </Button>
-              <Button
-                variant='outline'
-                className='w-full'
-                type='button'
-                loading={isLoading}
-                leftSection={<IconBrandFacebook className='h-4 w-4' />}
-              >
-                Facebook
-              </Button>
-            </div>
           </div>
         </form>
       </Form>

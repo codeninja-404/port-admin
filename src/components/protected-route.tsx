@@ -6,12 +6,15 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { isAuthenticated } = useAppSelector((state) => state.auth)
+  const { isAuthenticated, token } = useAppSelector((state) => state.auth)
   const location = useLocation()
 
-  if (!isAuthenticated) {
-    // Redirect to login page with return url
-    return <Navigate to="/sign-in" state={{ from: location }} replace />
+  // Check if user is authenticated and has a valid token
+  const isLoggedIn = isAuthenticated && token
+
+  if (!isLoggedIn) {
+    // Redirect to sign-in page with return url
+    return <Navigate to='/sign-in' state={{ from: location }} replace />
   }
 
   return <>{children}</>
