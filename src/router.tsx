@@ -5,7 +5,6 @@ import MaintenanceError from './pages/errors/maintenance-error'
 import UnauthorisedError from './pages/errors/unauthorised-error.tsx'
 
 const router = createBrowserRouter([
-
   {
     path: '/',
     lazy: async () => {
@@ -93,7 +92,7 @@ const router = createBrowserRouter([
           Component: (await import('@/pages/tasks')).default,
         }),
       },
-     
+
       {
         path: 'supports',
         lazy: async () => ({
@@ -186,7 +185,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  
 
   { path: '/500', Component: GeneralError },
   { path: '/404', Component: NotFoundError },

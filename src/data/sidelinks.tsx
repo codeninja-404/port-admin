@@ -1,6 +1,22 @@
-import { IconBrandProducthunt, IconCalendarWeek, IconChecklist, IconHelpHexagon, IconHexagonNumber1, IconHexagonNumber2, IconHexagonNumber3, IconHexagonNumber4, IconHexagonNumber5, IconHome, IconLayoutDashboard, IconLayoutKanban, IconMessages, IconSettings, IconShoppingCart, IconUserShield } from "@tabler/icons-react"
-import { User2Icon } from "lucide-react"
-
+import {
+  IconBrandProducthunt,
+  IconCalendarWeek,
+  IconChecklist,
+  IconHelpHexagon,
+  IconHexagonNumber1,
+  IconHexagonNumber2,
+  IconHexagonNumber3,
+  IconHexagonNumber4,
+  IconHexagonNumber5,
+  IconHome,
+  IconLayoutDashboard,
+  IconLayoutKanban,
+  IconMessages,
+  IconSettings,
+  IconShoppingCart,
+  IconUserShield,
+} from '@tabler/icons-react'
+import { User2Icon } from 'lucide-react'
 
 export interface NavLink {
   title: string
@@ -20,12 +36,12 @@ export const sidelinks: SideLink[] = [
     href: '/',
     icon: <IconHome size={18} />,
   },
-  {
-    title: 'Dashboard',
-    label: '',
-    href: '/dashboard',
-    icon: <IconLayoutDashboard size={18} />,
-  },
+  // {
+  //   title: 'Dashboard',
+  //   label: '',
+  //   href: '/dashboard',
+  //   icon: <IconLayoutDashboard size={18} />,
+  // },
   {
     title: 'KanBan',
     label: '',
@@ -52,18 +68,18 @@ export const sidelinks: SideLink[] = [
       },
     ],
   },
-  {
-    title: 'Chats',
-    label: '',
-    href: '/chats',
-    icon: <IconMessages size={18} />,
-  },
-  {
-    title: 'Order',
-    label: '',
-    href: '/order',
-    icon: <IconShoppingCart size={18} />,
-  },
+  // {
+  //   title: 'Chats',
+  //   label: '',
+  //   href: '/chats',
+  //   icon: <IconMessages size={18} />,
+  // },
+  // {
+  //   title: 'Order',
+  //   label: '',
+  //   href: '/order',
+  //   icon: <IconShoppingCart size={18} />,
+  // },
   {
     title: 'Calendar',
     label: '',
@@ -88,7 +104,6 @@ export const sidelinks: SideLink[] = [
         href: '/emails/send',
         icon: <IconHexagonNumber1 size={18} />,
       },
-      
     ],
   },
   {
@@ -97,50 +112,50 @@ export const sidelinks: SideLink[] = [
     href: '/tasks',
     icon: <IconChecklist size={18} />,
   },
-  {
-    title: 'Supports',
-    label: '',
-    href: '/supports',
-    icon: <IconHelpHexagon size={18} />,
-  },
-  {
-    title: 'Authentication',
-    label: '',
-    href: '',
-    icon: <IconUserShield size={18} />,
-    sub: [
-      {
-        title: 'Sign In (email + password)',
-        label: '',
-        href: '/sign-in',
-        icon: <IconHexagonNumber1 size={18} />,
-      },
-      {
-        title: 'Sign In (Box)',
-        label: '',
-        href: '/sign-in-2',
-        icon: <IconHexagonNumber2 size={18} />,
-      },
-      {
-        title: 'Sign Up',
-        label: '',
-        href: '/sign-up',
-        icon: <IconHexagonNumber3 size={18} />,
-      },
-      {
-        title: 'Forgot Password',
-        label: '',
-        href: '/forgot-password',
-        icon: <IconHexagonNumber4 size={18} />,
-      },
-      {
-        title: 'OTP',
-        label: '',
-        href: '/otp',
-        icon: <IconHexagonNumber5 size={18} />,
-      },
-    ],
-  },
+  // {
+  //   title: 'Supports',
+  //   label: '',
+  //   href: '/supports',
+  //   icon: <IconHelpHexagon size={18} />,
+  // },
+  // {
+  //   title: 'Authentication',
+  //   label: '',
+  //   href: '',
+  //   icon: <IconUserShield size={18} />,
+  //   sub: [
+  //     {
+  //       title: 'Sign In (email + password)',
+  //       label: '',
+  //       href: '/sign-in',
+  //       icon: <IconHexagonNumber1 size={18} />,
+  //     },
+  //     {
+  //       title: 'Sign In (Box)',
+  //       label: '',
+  //       href: '/sign-in-2',
+  //       icon: <IconHexagonNumber2 size={18} />,
+  //     },
+  //     {
+  //       title: 'Sign Up',
+  //       label: '',
+  //       href: '/sign-up',
+  //       icon: <IconHexagonNumber3 size={18} />,
+  //     },
+  //     {
+  //       title: 'Forgot Password',
+  //       label: '',
+  //       href: '/forgot-password',
+  //       icon: <IconHexagonNumber4 size={18} />,
+  //     },
+  //     {
+  //       title: 'OTP',
+  //       label: '',
+  //       href: '/otp',
+  //       icon: <IconHexagonNumber5 size={18} />,
+  //     },
+  //   ],
+  // },
   {
     title: 'Users',
     label: '',

@@ -57,7 +57,7 @@ export function RecentSales() {
           <AvatarFallback>SD</AvatarFallback>
         </Avatar>
         <div className='ml-4 space-y-1'>
-          <p className='text-sm font-medium leading-none'>Sofia Davis</p>
+          <p className='text-sm font-medium leading-none'>Saidul Arefin</p>
           <p className='text-sm text-muted-foreground'>sofia.davis@email.com</p>
         </div>
         <div className='ml-auto font-medium'>+$39.00</div>

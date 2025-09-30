@@ -1,5 +1,5 @@
 import { UserAuthForm } from './components/user-auth-form'
-import ViteLogo from '@/assets/vite.svg'
+import dpImg from '@/assets/dp.png'
 
 export default function SignIn() {
   return (
@@ -20,12 +20,12 @@ export default function SignIn() {
             >
               <path d='M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3' />
             </svg>
-            Shadcn Admin
+            S. Arefin
           </div>
 
           <img
-            src={ViteLogo}
-            className='relative m-auto'
+            src={dpImg}
+            className='relative m-auto rounded-full'
             width={301}
             height={60}
             alt='Vite'
@@ -34,11 +34,10 @@ export default function SignIn() {
           <div className='relative z-20 mt-auto'>
             <blockquote className='space-y-2'>
               <p className='text-lg'>
-                &ldquo;This library has saved me countless hours of work and
-                helped me deliver stunning designs to my clients faster than
-                ever before.&rdquo;
+                &ldquo;জিন্দেগি ঝান্ডুয়া, ফিরবি ঘামান্ডুয়া! &rdquo;
               </p>
-              <footer className='text-sm'>Sofia Davis</footer>
+
+              <footer className='text-sm'>Saidul Arefin</footer>
             </blockquote>
           </div>
         </div>
@@ -52,23 +51,6 @@ export default function SignIn() {
               </p>
             </div>
             <UserAuthForm />
-            <p className='px-8 text-center text-sm text-muted-foreground'>
-              By clicking login, you agree to our{' '}
-              <a
-                href='/terms'
-                className='underline underline-offset-4 hover:text-primary'
-              >
-                Terms of Service
-              </a>{' '}
-              and{' '}
-              <a
-                href='/privacy'
-                className='underline underline-offset-4 hover:text-primary'
-              >
-                Privacy Policy
-              </a>
-              .
-            </p>
           </div>
         </div>
       </div>
